@@ -10,7 +10,7 @@ For development purposes, a 10.4 [Dockerfile](https://github.com/Ziehnert/Typo3-
 
 ```yaml
   typo3:
-    build: martinhelmich/typo3:$VERSION
+    image: martinhelmich/typo3:$VERSION
     restart: always
     labels:
       - "traefik.enable=true"
@@ -30,7 +30,7 @@ After the installtion, you won't be able to access the backend unless you specif
 
 ```yaml
   typo3:
-    build: martinhelmich/typo3:$VERSION
+    image: martinhelmich/typo3:$VERSION
     restart: always
     labels:
       - "traefik.enable=true"
