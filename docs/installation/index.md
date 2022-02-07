@@ -31,7 +31,7 @@ ff02::2           ip6-allrouters
 ```
 
 !!! warning ""
-    IPv6-FQDN is missing, although I never set up a server using ipv6.
+    Don't forget to add your IPv6-FQDN here
 
 In this case I decided to use the hostname `server` and assign the fully qualified domain name `fqdn.domain.tld` to it.
 To apply the changes, you need to restart the server.

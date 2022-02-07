@@ -5,7 +5,7 @@ This Admin Guide describes how I setup my servers using docker.
 ## Installation
 
 I created a script which can be executed to setup the server.  
-I suggest you to get used to my structure (e.g. the stack logic), otherwise you might run into problems later on.  
+I suggest you to get used to my structure, otherwise you might run into problems later on.  
 If you never used this guide, you should [perform the installation manually](./installation/) to understand the structure.
 
 <details>
@@ -35,22 +35,21 @@ You can basicly skip most of the installation section, but there are some except
 curl -fsSL https://raw.githubusercontent.com/felbinger/AdminGuide/master/postinstall.sh | sudo bash
 ```
 
-Checkout the <a href="/installation/postinstall/">demo of the postinstall script</a>.
+Checkout the <a href="/installation/postinstall/">demo of the postinstall script (outdated!)</a>.
 
 </details>
 
 ## Create your Services
 
 After you successfully installed your system, you can add the services you need.  
-Before you add a new service think which stack fits best. It might be useful to create a new stack.
 
 You can find a lot of services (e.g. Databases, Gameserver, Apps for Communication, Apps for File Storage, ...) in the navigation bar on the left side of the page.
-Simply add them to your `docker-compose.yml` and modify the required attributes (e.g. passwords, domain name, routing configuration, ...).
+Simply create a new directory in `/home/admin/`, add your `docker-compose.yml` and modify the required attributes (e.g. passwords, domain name, routing configuration, ...).
 
 ### Environment Variables
 I don't put environment variables in the `docker-compose.yml`, instead I create a `.<service_name>.env` file, in which all environment variables are defined.
 Afterwards I add this environment file using `env_file: .<service_name>.env` to the service, defined in the `docker-compose.yml`.
-The main reason for that is, to prevent password leaks: e.g. screensharing, or if you send someone your service definition
+The main reason for that is, to prevent password leaks: e. g. screensharing, or if you send someone your service definition
 
 ## Tools
 
@@ -80,21 +79,8 @@ sudo apt update
 sudo apt install docker-network-viewer
 ```
 
-```bash
-sudo wget https://github.com/MarcelCoding/docker-network-viewer/releases/download/v1.1.1/docker-network-viewer \
-  -O /usr/local/bin/dnv
-sudo chmod +x /usr/local/bin/dnv
-```
-
 ```sh
 $ sudo dnv
 bridge			172.17.0.0/16
 proxy			  192.168.0.0/24
-database		192.168.1.0/24
-monitoring	192.168.2.0/24
-main			  192.168.100.0/24
-storage			192.168.101.0/24
-comms			  192.168.102.0/24
-jitsi			  192.168.103.0/24
-games			  192.168.104.0/24
 ```
